@@ -13,3 +13,9 @@ jobs:
           channel: stable
           flutter-version: 3.29.2
       - run: flutter build macos
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: build/macos/Build/Products/Release/doro.app
