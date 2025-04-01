@@ -19,25 +19,11 @@ jobs:
           name: build-artifact
           path: build\windows\x64\runner\Release\doro.exe
 
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifact
-          path: .
-
       - name: Attach File to Existing Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          files: doro.exe
+          files: build\windows\x64\runner\Release\doro.exe
           append_body: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
