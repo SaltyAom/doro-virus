@@ -38,6 +38,6 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           files: doro.exe
-          append: true
+          append_body: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
