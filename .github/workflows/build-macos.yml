@@ -2,7 +2,7 @@ on: release
 name: Build macOS
 
 jobs:
-  main:
+  build:
     runs-on: macos-latest
     steps:
       - name: Clone repository
